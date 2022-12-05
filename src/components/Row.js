@@ -1,21 +1,13 @@
 import React from 'react';
-import Slot from './Slot';
+import Slots from './Slots';
 
-export default function Row({ guess, currentGuess, handleSlotClick }) {
-    
+export default function Row({ guess, currentGuess, handleSlotClick, className }) {
    
     // if both props undefined, return empty row
     return (
-        <div className='row'>
-            <div className='slots'>
-                {[...Array(4)].map((e, i) => (
-                    <Slot 
-                        key={i}
-                        index={i} 
-                        handleSlotClick={handleSlotClick}
-                    />
-                ))}
-            </div>
+        <div className={`row ${className}`}>
+            <Slots handleSlotClick={handleSlotClick} currentGuess={currentGuess}/>
+
             <button>check</button>
 
             <div className='evaluation'>

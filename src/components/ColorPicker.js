@@ -2,6 +2,7 @@ import React from 'react';
 import { COLORS } from '../constants/colors';
 
 export default function ColorPicker({handlePickerClick}) {
+
     return (
         <div className='picker'>
             {COLORS.map((color, i) => (

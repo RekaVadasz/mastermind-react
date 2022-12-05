@@ -69,6 +69,10 @@ body section .grid .row .evaluation div {
   margin: 3px;
 }
 
+body section .grid .inactive .slots > div, body section .grid .inactive button {
+  cursor: not-allowed;
+}
+
 body section .picker {
   max-width: 70%;
   margin: 0 auto;
@@ -80,6 +84,8 @@ body section .picker {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  position: fixed;
+  top: 0;
   background-color: #888;
 }
 

@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 
-export default function Slot({ index, handleSlotClick }) {
+export default function Slot({ index, handleSlotClick, style }) {
 
     const [isClicked, setClicked] = useState(false)
 
@@ -8,6 +8,7 @@ export default function Slot({ index, handleSlotClick }) {
         <div 
             index={index}
             onClick={handleSlotClick}
+            style={style}
         ></div>
     )
 }
