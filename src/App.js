@@ -1,13 +1,11 @@
 import { React, useState, useEffect } from 'react';
-
-import Mastermind from "./components/Mastermind";
-
 import { COLORS } from './constants/colors';
+
+import Board from "./components/Board";
 
 function App() {
 
     const [solution, setSolution] = useState(null);
-    console.log(solution)
 
     useEffect(() => {
         let randomSolution = [];
@@ -21,8 +19,7 @@ function App() {
     return (
         <div className="App">
             <h1>Mastermind</h1>
-            <div>{COLORS[0].color}</div>
-            {solution && <Mastermind solution={solution}/>}
+            {solution && <Board solution={solution}/>}
         </div>
     );
 }
