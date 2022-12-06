@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import ColorPicker from './ColorPicker';
 import Grid from './Grid';
+import Modal from './Modal';
 
 import { COLORS } from '../constants/colors';
 import useMastermind from '../hooks/useMastermind';
@@ -62,6 +63,7 @@ export default function Board({ solution }) {
         if (JSON.stringify(currentGuess) === JSON.stringify(solutionArray)) {
             setIsCorrect(true) //win the game
             console.log("you won")
+            setShowModal(true)
             return
         }
         
@@ -74,11 +76,9 @@ export default function Board({ solution }) {
             return newFeedbacks
         }) 
 
-
-
-
         if (turn === 9 ) {
             console.log('Could not break the code, try new game')
+            setShowModal(true)
             return
         }
 
@@ -114,6 +114,7 @@ export default function Board({ solution }) {
                 feedbacks={feedbacks}
             />
             {showPicker && <ColorPicker handlePickerClick={handlePickerClick}/>}
+            {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution}/>}
         </section>
     )
 }

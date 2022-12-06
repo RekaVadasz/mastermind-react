@@ -24,12 +24,12 @@ export default function Row({ guess, currentGuess, handleSlotClick, className, c
                 {feedbackArray.map((element, i) => {
                     
                     if (element === 'correct') {
-                        return (<div className='correct'></div>)
+                        return (<div key={i} className='correct'></div>)
                     }
                     if (element === 'included') {
-                        return (<div className='included'></div>)
+                        return (<div key={i} className='included'></div>)
                     }
-                    return (<div></div>)
+                    return (<div key={i}></div>)
 
                 })}
             </div>

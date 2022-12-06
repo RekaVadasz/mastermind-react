@@ -58,7 +58,7 @@ body {
                     }
 
                     .included {
-                        background-color: #333;
+                        background-color: rgb(172, 172, 172);
                     }
                 }
             }
@@ -89,6 +89,43 @@ body {
                 margin: 3px; 
                 cursor: pointer;
             }
+        }
+
+        .modal {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255,255,255,0.7);
+
+            .modal-inner {
+                width: 400px;
+                max-width: 80vw;
+                padding: 40px;
+                margin: 10px;
+                border-radius: 10px;
+                background: #fff;
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+                
+                .solution-slots {
+                    display: flex;
+                    justify-content: center;
+    
+                    div {
+                        width: 40px;
+                        height: 40px;
+                        border: 2px solid #000;
+                        border-radius: 50%;
+                        margin: 3px; 
+                    } 
+    
+                }
+            }
+
         }
 
     }
