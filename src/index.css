@@ -69,6 +69,14 @@ body section .grid .row .evaluation div {
   margin: 3px;
 }
 
+body section .grid .row .evaluation .correct {
+  background-color: #000;
+}
+
+body section .grid .row .evaluation .included {
+  background-color: #333;
+}
+
 body section .grid .inactive .slots > div, body section .grid .inactive button {
   cursor: not-allowed;
 }

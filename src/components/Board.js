@@ -8,25 +8,27 @@ import useMastermind from '../hooks/useMastermind';
 
 export default function Board({ solution }) {
 
-    const { getFeedback } = useMastermind
+    const { getFeedback } = useMastermind();
+
+
+    // - - - - STATES - - - - 
 
     const [showPicker, setShowPicker] = useState(false)
     const [showModal, setShowModal] = useState(false);
     
     const [currentSlot, setCurrentSlot] = useState(null); //the slot where the user chooses a color
     //console.log('current slot:', currentSlot)
-
     const [turn, setTurn] = useState(0); //max 10
     console.log('turn: ', turn)
     const [currentGuess, setCurrentGuess] = useState([...Array(4)]); //empty array of 4 elements
     //console.log('current guees:', currentGuess)
-
-    const [feedback, setfeedback] = useState([...Array(10)])
-
+    const [feedbacks, setFeedbacks] = useState([...Array(10)])
     const [guesses, setGuesses] = useState([...Array(10)]) // each guess is an array of colors
-    console.log('guesses', guesses)
+    //console.log('guesses', guesses)
     const [isCorrect, setIsCorrect] = useState(false) //if true: finish game, win
 
+
+    // - - - LOGIC - - - - 
 
     //choose slot to insert a color from picker (show picker)
     const handleSlotClick = (e) => {
@@ -36,7 +38,6 @@ export default function Board({ solution }) {
 
     // handle user color input, save color into current guess at right position
     const handlePickerClick = (e) => {
-        console.log('chosen color:', e.target.getAttribute('colorid')); //string 
         setShowPicker(false);
         const nextGuess = currentGuess.map((guess, i) => {
             if (i === currentSlot) {
@@ -66,6 +67,12 @@ export default function Board({ solution }) {
         
         //otherwise evaluate guess, save it and track turn
         console.log('not correct')
+        const newFeedback = getFeedback(currentGuess, solution);
+        setFeedbacks((prevFeedbacks) => {
+            let newFeedbacks = [...prevFeedbacks];
+            newFeedbacks[turn] = newFeedback;
+            return newFeedbacks
+        }) 
 
 
 
@@ -104,6 +111,7 @@ export default function Board({ solution }) {
                 guesses={guesses}
                 turn={turn}
                 checkGuess={checkGuess}
+                feedbacks={feedbacks}
             />
             {showPicker && <ColorPicker handlePickerClick={handlePickerClick}/>}
         </section>
