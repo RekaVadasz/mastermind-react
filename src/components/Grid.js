@@ -1,7 +1,7 @@
 import React from 'react';
 import Row from './Row';
 
-export default function Grid({ currentGuess, guesses, turn, handleSlotClick }) {
+export default function Grid({ currentGuess, guesses, turn, handleSlotClick, checkGuess }) {
     return (
         <div className='grid'>
             {guesses.map((guess, i) => {
@@ -11,6 +11,7 @@ export default function Grid({ currentGuess, guesses, turn, handleSlotClick }) {
                             key= {i} 
                             currentGuess={currentGuess} 
                             handleSlotClick={handleSlotClick} 
+                            checkGuess={checkGuess  }
                         />
                     )
                 }

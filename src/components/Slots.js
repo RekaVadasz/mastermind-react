@@ -4,8 +4,24 @@ import { COLORS } from '../constants/colors';
 
 
 
-export default function Slots({handleSlotClick, currentGuess}) {
+export default function Slots({handleSlotClick, currentGuess, guess}) {
 
+    if (guess) {
+        return (
+            <div className='slots'>
+                {guess.map((color, i) => {
+                    const backgroundColor = COLORS.find(element => element.id === color).color 
+                    return (
+                        <Slot 
+                            key={`slot${i}`}
+                            index={i} 
+                            style={{backgroundColor: `${backgroundColor}`}} 
+                        />
+                    )
+                })}
+            </div>
+        )
+    }
 
     if (currentGuess) {
         return (
@@ -14,10 +30,9 @@ export default function Slots({handleSlotClick, currentGuess}) {
 
                     if (color) {
                         const backgroundColor = COLORS.find(element => element.id === color).color
-                        console.log(backgroundColor)
                         return (
                             <Slot 
-                                key={i}
+                                key={`slot${i}`}
                                 index={i} 
                                 style={{backgroundColor: `${backgroundColor}`}} 
                                 handleSlotClick={handleSlotClick}
@@ -27,7 +42,7 @@ export default function Slots({handleSlotClick, currentGuess}) {
 
                     return (
                         <Slot 
-                            key={i}
+                            key={`slot${i}`}
                             index={i} 
                             handleSlotClick={handleSlotClick}
                         />
@@ -39,8 +54,8 @@ export default function Slots({handleSlotClick, currentGuess}) {
 
     return (
         <div className='slots'>
-            {[...Array(4)].map((i) => 
-                <Slot key={i} />
+            {[...Array(4)].map((e, i) => 
+               <Slot key={`slot${i}`} />
             )}
         </div>
     )
