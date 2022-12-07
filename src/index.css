@@ -316,11 +316,11 @@
 }
 
 * body .board .grid .row .evaluation .correct {
-  background-color: #262626;
+  background-color: #EFEFEF;
 }
 
 * body .board .grid .row .evaluation .included {
-  background-color: #EFEFEF;
+  background-color: #262626;
 }
 
 * body .board .grid .row button {
