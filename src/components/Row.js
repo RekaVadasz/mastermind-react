@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Slots from './Slots';
 
 export default function Row({ guess, currentGuess, handleSlotClick, className, checkGuess, feedback }) {
@@ -18,7 +19,6 @@ export default function Row({ guess, currentGuess, handleSlotClick, className, c
                 guess={guess}
             />
 
-            <button onClick={checkGuess}>check</button>
 
             <div className='evaluation'>
                 {feedbackArray.map((element, i) => {
@@ -30,9 +30,11 @@ export default function Row({ guess, currentGuess, handleSlotClick, className, c
                         return (<div key={i} className='included'></div>)
                     }
                     return (<div key={i}></div>)
-
+                    
                 })}
             </div>
+
+            <button onClick={checkGuess}><i class='bx bx-check'></i></button>
         </div>
     )
 }

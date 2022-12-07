@@ -1,132 +1,201 @@
-body {
+* {  
     margin: 0;
-    font-family: verdana;
-    text-align: center;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    background: transparent;
+    font-family: inherit;
 
-    h1 {
-        font-size: 1.2em;
-        padding: 20px 0;
-        border-bottom: 1px solid #eee;
-        margin: 0 0 30px 0;
-        color: #333;
-    }
-
-    section {
-
-        .solution {
-            display: flex;
-            justify-content: center;
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        
+        h1 {
+            font-size: 20px;
+            font-weight: 500;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            margin: 0;
+            color: #333;
         }
 
-        .grid {
-            .row {
+        section {
+
+            .solution {
+                display: flex;
+                justify-content: center;
+                position: fixed;
+                top: 0;
+                background-color: #888;
+            }
+
+            .grid {
+                max-width: 380px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                background-color: #9C7160;
+                border-radius: 18px;
+                margin: 0 auto;
+
+                .row {
+                    display: flex;
+                    justify-content: center;
+                    align-items: stretch;
+
+                    &:nth-child(10) {
+
+                        div {
+                            border: none
+                        }
+                    }
+
+                    .slots {
+                        padding: 10px 0px;
+                        border-bottom: 5px solid #89594B;
+                        display: flex;
+                        
+
+
+                        div {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            margin: 3px;
+                            cursor: pointer;
+                            background-color: #89594B;
+                            transition: ease 0.5s;
+
+                            &:hover {
+                                transform: scale(1.2);
+                                transition: ease 0.5s;
+                            }
+                            
+                        }
+                    }
+
+                    
+                    .evaluation {
+                        width: 50px;
+                        padding: 13px 0;
+                        border-bottom: 5px solid #89594B;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        
+                        div {
+                            width: 15px;
+                            height: 15px;
+                            border-radius: 50%;
+                            margin: 2px;
+                            background-color: #89594B;
+                        }
+
+                        .correct {
+                            background-color: #262626;
+                        }
+                        
+                        .included {
+                            background-color: #EFEFEF;
+                        }
+                    }
+
+                    button {
+                        width: 20px;
+                        height: 20px;
+                        padding-top: 1px;
+                        border: none;
+                        border-radius: 50%;
+                        margin-left: 8px;
+                        align-self: center;
+                        cursor: pointer;
+                        background-color: #6CAB3F;
+                        transition: ease 0.5s;
+
+                        &:hover {
+                            transform: scale(1.4);
+                            transition: ease 0.5s;
+                        }
+
+                        i {
+                            font-size: 12px;
+                            color: #EFEFEF;
+                        }
+                    }
+                }
+
+                .inactive {
+                    .slots > div, button {
+                        cursor: not-allowed;
+
+                        &:hover {
+                            transform: none;
+
+                        }
+                    }
+                }
+                
+            }
+
+            .picker {
+                max-width: 70%;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                position: fixed;
+                top: 0;
+                background-color: #888;
+
+                div {
+                    width: 40px;
+                    height: 40px;
+                    border: 2px solid #888;
+                    border-radius: 50%;
+                    margin: 3px; 
+                    cursor: pointer;
+                }
+            }
+
+            .modal {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                background: rgba(255,255,255,0.7);
 
-                .slots {
-                    display: flex;
-
-                    div {
-                        width: 40px;
-                        height: 40px;
-                        border: 2px solid #000;
-                        border-radius: 50%;
-                        margin: 3px;
-                        cursor: pointer;
+                .modal-inner {
+                    width: 400px;
+                    max-width: 80vw;
+                    padding: 40px;
+                    margin: 10px;
+                    border-radius: 10px;
+                    background: #fff;
+                    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+                    
+                    .solution-slots {
+                        display: flex;
+                        justify-content: center;
+        
+                        div {
+                            width: 40px;
+                            height: 40px;
+                            border: 2px solid #000;
+                            border-radius: 50%;
+                            margin: 3px; 
+                        } 
+        
                     }
                 }
 
-                button {
-                    height: fit-content;
-                    cursor: pointer;
-                }
-
-                .evaluation {
-                    display: flex;
-
-                    div {
-                        width: 15px;
-                        height: 15px;
-                        border: 2px solid #000;
-                        border-radius: 50%;
-                        margin: 3px;
-                    }
-
-                    .correct {
-                        background-color: #000;
-                    }
-
-                    .included {
-                        background-color: rgb(172, 172, 172);
-                    }
-                }
-            }
-
-            .inactive {
-                .slots > div, button {
-                    cursor: not-allowed;
-                }
-            }
-            
-        }
-
-        .picker {
-            max-width: 70%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            position: fixed;
-            top: 0;
-            background-color: #888;
-
-            div {
-                width: 40px;
-                height: 40px;
-                border: 2px solid #888;
-                border-radius: 50%;
-                margin: 3px; 
-                cursor: pointer;
-            }
-        }
-
-        .modal {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255,255,255,0.7);
-
-            .modal-inner {
-                width: 400px;
-                max-width: 80vw;
-                padding: 40px;
-                margin: 10px;
-                border-radius: 10px;
-                background: #fff;
-                box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-                
-                .solution-slots {
-                    display: flex;
-                    justify-content: center;
-    
-                    div {
-                        width: 40px;
-                        height: 40px;
-                        border: 2px solid #000;
-                        border-radius: 50%;
-                        margin: 3px; 
-                    } 
-    
-                }
             }
 
         }
-
     }
 }

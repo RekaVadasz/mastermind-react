@@ -1,27 +1,96 @@
-body {
+* {
   margin: 0;
-  font-family: verdana;
+  padding: 0;
+  border: 0;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: transparent;
+  font-family: inherit;
+}
+
+* body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
 }
 
-body h1 {
-  font-size: 1.2em;
+* body h1 {
+  font-size: 20px;
+  font-weight: 500;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
-  margin: 0 0 30px 0;
+  margin: 0;
   color: #333;
 }
 
-body section .solution {
+* body section .solution {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: fixed;
+  top: 0;
+  background-color: #888;
 }
 
-body section .grid .row {
+* body section .grid {
+  max-width: 380px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #9C7160;
+  border-radius: 18px;
+  margin: 0 auto;
+}
+
+* body section .grid .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+* body section .grid .row:nth-child(10) div {
+  border: none;
+}
+
+* body section .grid .row .slots {
+  padding: 10px 0px;
+  border-bottom: 5px solid #89594B;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+* body section .grid .row .slots div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 3px;
+  cursor: pointer;
+  background-color: #89594B;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+* body section .grid .row .slots div:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+* body section .grid .row .evaluation {
+  width: 50px;
+  padding: 13px 0;
+  border-bottom: 5px solid #89594B;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,57 +100,64 @@ body section .grid .row {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-body section .grid .row .slots {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body section .grid .row .slots div {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #000;
-  border-radius: 50%;
-  margin: 3px;
-  cursor: pointer;
-}
-
-body section .grid .row button {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  cursor: pointer;
-}
-
-body section .grid .row .evaluation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body section .grid .row .evaluation div {
+* body section .grid .row .evaluation div {
   width: 15px;
   height: 15px;
-  border: 2px solid #000;
   border-radius: 50%;
-  margin: 3px;
+  margin: 2px;
+  background-color: #89594B;
 }
 
-body section .grid .row .evaluation .correct {
-  background-color: #000;
+* body section .grid .row .evaluation .correct {
+  background-color: #262626;
 }
 
-body section .grid .row .evaluation .included {
-  background-color: #acacac;
+* body section .grid .row .evaluation .included {
+  background-color: #EFEFEF;
 }
 
-body section .grid .inactive .slots > div, body section .grid .inactive button {
+* body section .grid .row button {
+  width: 20px;
+  height: 20px;
+  padding-top: 1px;
+  border: none;
+  border-radius: 50%;
+  margin-left: 8px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  cursor: pointer;
+  background-color: #6CAB3F;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+* body section .grid .row button:hover {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+* body section .grid .row button i {
+  font-size: 12px;
+  color: #EFEFEF;
+}
+
+* body section .grid .inactive .slots > div, * body section .grid .inactive button {
   cursor: not-allowed;
 }
 
-body section .picker {
+* body section .grid .inactive .slots > div:hover, * body section .grid .inactive button:hover {
+  -webkit-transform: none;
+          transform: none;
+}
+
+* body section .picker {
   max-width: 70%;
   margin: 0 auto;
   display: -webkit-box;
@@ -97,7 +173,7 @@ body section .picker {
   background-color: #888;
 }
 
-body section .picker div {
+* body section .picker div {
   width: 40px;
   height: 40px;
   border: 2px solid #888;
@@ -106,7 +182,7 @@ body section .picker div {
   cursor: pointer;
 }
 
-body section .modal {
+* body section .modal {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -124,7 +200,7 @@ body section .modal {
   background: rgba(255, 255, 255, 0.7);
 }
 
-body section .modal .modal-inner {
+* body section .modal .modal-inner {
   width: 400px;
   max-width: 80vw;
   padding: 40px;
@@ -135,7 +211,7 @@ body section .modal .modal-inner {
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-body section .modal .modal-inner .solution-slots {
+* body section .modal .modal-inner .solution-slots {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,7 +220,7 @@ body section .modal .modal-inner .solution-slots {
           justify-content: center;
 }
 
-body section .modal .modal-inner .solution-slots div {
+* body section .modal .modal-inner .solution-slots div {
   width: 40px;
   height: 40px;
   border: 2px solid #000;
