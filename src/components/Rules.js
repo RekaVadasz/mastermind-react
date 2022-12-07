@@ -4,7 +4,7 @@ export default function Rules ({ handleClick }) {
     return (
         <div className='rules'>
             <div>
-                <i class='bx bx-x' onClick={handleClick}></i>
+                <i className='bx bx-x' onClick={handleClick}></i>
                 <h2>Game Rules</h2>
                 <p>As a Codebreaker, your goal is to find out the secret code of 4 colors in not more than 10 turns.</p>
                 <p>The code is an arbitrary combination of 8 colors (colors can occur more than once).</p>
