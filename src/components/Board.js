@@ -86,7 +86,7 @@ export default function Board({ solution }) {
     }
 
     return (
-        <main>
+        <div className='board'>
 
             <Grid 
                 handleSlotClick={handleSlotClick}
@@ -99,6 +99,6 @@ export default function Board({ solution }) {
                 handlePickerClick={handlePickerClick}
             />
             {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution}/>}
-        </main>
+        </div>
     )
 }

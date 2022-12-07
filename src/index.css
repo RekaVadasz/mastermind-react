@@ -15,8 +15,33 @@
   text-align: center;
 }
 
-* body .mobile-menu i {
-  font-size: 30px;
+* body .mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 5px;
+}
+
+@media screen and (max-height: 850px) {
+  * body .mobile-menu {
+    display: block;
+  }
+}
+
+* body .mobile-menu div {
+  width: 35px;
+  height: 35px;
+  padding-top: 5px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+* body .mobile-menu div i {
+  font-size: 26px;
+  color: #333;
 }
 
 * body header {
@@ -95,7 +120,60 @@
   }
 }
 
-* body main {
+* body .rules {
+  /* display: none; */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* body .rules div {
+  padding: 15px;
+  margin: 10px;
+  position: relative;
+  border-radius: 8px;
+  background-color: #fff;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+* body .rules div i {
+  position: absolute;
+  font-size: 30px;
+  color: #666;
+  top: 5px;
+  right: 5px;
+}
+
+* body .rules div h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+* body .rules div p {
+  font-size: 14px;
+  margin-bottom: 7px;
+  text-align: left;
+  color: #333;
+}
+
+* body .rules div h3 {
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+}
+
+* body .board {
   width: 100vw;
   height: 100vh;
   display: -webkit-box;
@@ -110,7 +188,7 @@
   background-color: #ffebcd;
 }
 
-* body main .grid {
+* body .board .grid {
   max-width: 380px;
   padding: 20px 28px;
   background-color: #9C7160;
@@ -120,7 +198,7 @@
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-* body main .grid .row {
+* body .board .grid .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,11 +211,11 @@
   position: relative;
 }
 
-* body main .grid .row:nth-child(10) div {
+* body .board .grid .row:nth-child(10) div {
   border: none;
 }
 
-* body main .grid .row .slots {
+* body .board .grid .row .slots {
   padding: 10px 0px;
   border-bottom: 5px solid #89594B;
   display: -webkit-box;
@@ -145,7 +223,7 @@
   display: flex;
 }
 
-* body main .grid .row .slots div {
+* body .board .grid .row .slots div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -158,14 +236,14 @@
   /* background: radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.123), rgba(0, 0, 0, 0.123)); */
 }
 
-* body main .grid .row .slots div:hover {
+* body .board .grid .row .slots div:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   -webkit-transition: ease 0.5s;
   transition: ease 0.5s;
 }
 
-* body main .grid .row .evaluation {
+* body .board .grid .row .evaluation {
   width: 50px;
   padding: 13px 0;
   border-bottom: 5px solid #89594B;
@@ -182,7 +260,7 @@
       flex-wrap: wrap;
 }
 
-* body main .grid .row .evaluation div {
+* body .board .grid .row .evaluation div {
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -191,15 +269,15 @@
   background: radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.123), rgba(0, 0, 0, 0.123));
 }
 
-* body main .grid .row .evaluation .correct {
+* body .board .grid .row .evaluation .correct {
   background-color: #262626;
 }
 
-* body main .grid .row .evaluation .included {
+* body .board .grid .row .evaluation .included {
   background-color: #EFEFEF;
 }
 
-* body main .grid .row button {
+* body .board .grid .row button {
   width: 20px;
   height: 20px;
   padding-top: 1px;
@@ -215,19 +293,19 @@
   transition: ease 0.5s;
 }
 
-* body main .grid .row button:hover {
+* body .board .grid .row button:hover {
   -webkit-transform: scale(1.4);
           transform: scale(1.4);
   -webkit-transition: ease 0.5s;
   transition: ease 0.5s;
 }
 
-* body main .grid .row button i {
+* body .board .grid .row button i {
   font-size: 12px;
   color: #EFEFEF;
 }
 
-* body main .grid .row .picker {
+* body .board .grid .row .picker {
   width: 200px;
   border-radius: 8px;
   padding: 6px 0;
@@ -250,7 +328,7 @@
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-* body main .grid .row .picker div {
+* body .board .grid .row .picker div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -262,23 +340,23 @@
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
 
-* body main .grid .row .picker div:hover {
+* body .board .grid .row .picker div:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   -webkit-transition: ease 0.5s;
   transition: ease 0.5s;
 }
 
-* body main .grid .inactive .slots > div, * body main .grid .inactive button {
+* body .board .grid .inactive .slots > div, * body .board .grid .inactive button {
   cursor: not-allowed;
 }
 
-* body main .grid .inactive .slots > div:hover, * body main .grid .inactive button:hover {
+* body .board .grid .inactive .slots > div:hover, * body .board .grid .inactive button:hover {
   -webkit-transform: none;
           transform: none;
 }
 
-* body main .modal {
+* body .board .modal {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -296,7 +374,7 @@
   background: rgba(255, 255, 255, 0.7);
 }
 
-* body main .modal .modal-inner {
+* body .board .modal .modal-inner {
   width: 400px;
   max-width: 80vw;
   padding: 40px;
@@ -307,11 +385,11 @@
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-* body main .modal .modal-inner h2 {
+* body .board .modal .modal-inner h2 {
   font-size: 20px;
 }
 
-* body main .modal .modal-inner .solution-slots {
+* body .board .modal .modal-inner .solution-slots {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -321,7 +399,7 @@
   margin-bottom: 10px;
 }
 
-* body main .modal .modal-inner .solution-slots div {
+* body .board .modal .modal-inner .solution-slots div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -329,7 +407,7 @@
   background: radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.123), rgba(0, 0, 0, 0.123));
 }
 
-* body main .modal .modal-inner button {
+* body .board .modal .modal-inner button {
   padding: 2px 5px;
   border: 2px solid #666;
   border-radius: 5px;

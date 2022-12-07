@@ -2,10 +2,12 @@ import { React, useState, useEffect } from 'react';
 
 import { COLORS } from './constants/colors';
 import Board from "./components/Board";
+import Rules from './components/Rules';
 
 function App() {
 
     const [solution, setSolution] = useState(null);
+    const [showRules, setShowRules] = useState(false)
     console.log(solution)
 
     useEffect(() => {
@@ -15,28 +17,30 @@ function App() {
             randomSolution.push(currentColor)
         };
         setSolution(randomSolution)
-    }, [setSolution])
+    }, [setSolution]);
+
+    const handleClick = () => {
+        setShowRules(!showRules)
+    }
 
     return (
         <>
             <header>
                 <div>Mastermind</div>
-                {/* {solution && <div className='solution'> 
-                    solution: 
-                        {solution.map((color, i) => (
-                            <div key={i}>{color.id}</div>
-                        ))}
-                </div>} */}
                 <div className='header-buttons'>
-                    <i className='bx bx-info-circle'></i>
+                    <i className='bx bx-info-circle' onClick={handleClick}></i>
                     <button onClick={() => {window.location.reload(false)}}>New Game</button>
                 </div>
             </header>
+
             {solution && <Board solution={solution}/>}
+
             <div className='mobile-menu'>
-                <i className='bx bx-info-circle'></i>
-                <i class='bx bx-revision'></i>
+                <div><i className='bx bx-info-circle' onClick={handleClick}></i></div>
+                <div><i class='bx bx-revision' onClick={() => {window.location.reload(false)}}></i></div>
             </div>
+
+            {showRules && <Rules handleClick={handleClick}/>}
         </>
     );
 }
