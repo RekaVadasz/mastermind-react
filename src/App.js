@@ -7,8 +7,7 @@ import Rules from './components/Rules';
 function App() {
 
     const [solution, setSolution] = useState(null);
-    const [showRules, setShowRules] = useState(false)
-    console.log(solution)
+    const [showRules, setShowRules] = useState(false);
 
     useEffect(() => {
         let randomSolution = [];
@@ -21,7 +20,7 @@ function App() {
 
     const handleClick = () => {
         setShowRules(!showRules)
-    }
+    };
 
     return (
         <>
@@ -37,7 +36,7 @@ function App() {
 
             <div className='mobile-menu'>
                 <div><i className='bx bx-info-circle' onClick={handleClick}></i></div>
-                <div><i class='bx bx-revision' onClick={() => {window.location.reload(false)}}></i></div>
+                <div><i className='bx bx-revision' onClick={() => {window.location.reload(false)}}></i></div>
             </div>
 
             {showRules && <Rules handleClick={handleClick}/>}

@@ -17,7 +17,6 @@ export default function Grid({ currentGuess, guesses, turn, handleSlotClick, che
                     )
                 }
                 
-                
                 if (i === turn) {
                     return (
                         <Row 

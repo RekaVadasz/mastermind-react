@@ -1,8 +1,6 @@
-import { React, useState } from 'react';
+import React from 'react';
 
 export default function Slot({ index, handleSlotClick, style }) {
-
-
     return (
         <div 
             index={index}
@@ -10,4 +8,4 @@ export default function Slot({ index, handleSlotClick, style }) {
             style={style}
         ></div>
     )
-}
+};

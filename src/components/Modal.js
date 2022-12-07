@@ -7,7 +7,7 @@ export default function Modal({ isCorrect, turn, solution }) {
                 {isCorrect && (
                     <>
                     <h2>Congratulalations, Codebreaker! :)</h2>
-                    <p>You found the solution is {turn + 1} guesses.</p>
+                    <p>You found the solution in {turn + 1} guesses.</p>
                     </>
                 )}
 
@@ -30,4 +30,4 @@ export default function Modal({ isCorrect, turn, solution }) {
             </div>
         </div>
     )
-}
+};

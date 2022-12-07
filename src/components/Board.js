@@ -20,7 +20,6 @@ export default function Board({ solution }) {
     const [feedbacks, setFeedbacks] = useState([...Array(10)])
     const [isCorrect, setIsCorrect] = useState(false) //if true: finish game, win
 
-
     // - - - LOGIC - - - - 
 
     //choose slot to insert a color from picker (show picker)
@@ -43,7 +42,6 @@ export default function Board({ solution }) {
     }
     
     // if check button clicked, check inputs against solution
-    
     const checkGuess = () => {
         //check if all slots are filled with color
         if (currentGuess.includes(undefined)) {
@@ -70,7 +68,7 @@ export default function Board({ solution }) {
         if (turn === 9 ) {
             setShowModal(true)
             return
-        }
+        };
 
         setGuesses((prevGuesses) => {
             let newGuesses = [...prevGuesses];
@@ -87,7 +85,6 @@ export default function Board({ solution }) {
 
     return (
         <div className='board'>
-
             <Grid 
                 handleSlotClick={handleSlotClick}
                 currentGuess={currentGuess}
