@@ -2,15 +2,11 @@ const useMastermind = () => {
    
     const getFeedback = (currentGuess, solution) => {
 
-        let solutionArray = solution.map((element) => (
-            element.id
-            ))
-            console.log('solution:', solutionArray)
+        let solutionArray = solution.map((element) => (element.id));
             
-            let guessWithFeedback = currentGuess.map((element) => {
-                return {color: element, isCorrect: 'not correct'}
-            })
-        console.log('current guess array: ', guessWithFeedback)
+        let guessWithFeedback = currentGuess.map((element) => {
+            return {color: element, isCorrect: 'not correct'}
+        });
             
         //check for colors in right position        
         guessWithFeedback.forEach((element, i) => {
@@ -26,9 +22,8 @@ const useMastermind = () => {
                 guessWithFeedback[i].isCorrect = 'included';
                 solutionArray[solutionArray.indexOf(element.color)] = null; //not to check again
             }
-        })
+        });
 
-        console.log('feedback:', guessWithFeedback)
         return guessWithFeedback
     }
     

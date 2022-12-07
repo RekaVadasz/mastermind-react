@@ -15,7 +15,10 @@ export default function Slots({handleSlotClick, currentGuess, guess}) {
                         <Slot 
                             key={`slot${i}`}
                             index={i} 
-                            style={{backgroundColor: `${backgroundColor}`}} 
+                            style={{
+                                backgroundColor: `${backgroundColor}`,
+                                backgroundImage: 'radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.123), rgba(0, 0, 0, 0.123)'
+                            }} 
                         />
                     )
                 })}
@@ -34,7 +37,10 @@ export default function Slots({handleSlotClick, currentGuess, guess}) {
                             <Slot 
                                 key={`slot${i}`}
                                 index={i} 
-                                style={{backgroundColor: `${backgroundColor}`}} 
+                                style={{
+                                    backgroundColor: `${backgroundColor}`,
+                                    backgroundImage: 'radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.123), rgba(0, 0, 0, 0.123)'
+                                }} 
                                 handleSlotClick={handleSlotClick}
                             />
                         )

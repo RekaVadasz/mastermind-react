@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
-import { COLORS } from './constants/colors';
 
+import { COLORS } from './constants/colors';
 import Board from "./components/Board";
 
 function App() {
@@ -17,10 +17,19 @@ function App() {
     }, [setSolution])
 
     return (
-        <div className="App">
-            <h1>Mastermind</h1>
+        <>
+            <header>
+                <div>Mastermind</div>
+                <div className='solution'> 
+                    solution: 
+                        {solution.map((color, i) => (
+                            <div key={i}>{color.id}</div>
+                        ))}
+                </div>
+                <button onClick={() => {window.location.reload(false)}}>New Game</button>
+            </header>
             {solution && <Board solution={solution}/>}
-        </div>
+        </>
     );
 }
 

@@ -1,8 +1,9 @@
 import React from 'react';
+import ColorPicker from './ColorPicker';
 
 import Slots from './Slots';
 
-export default function Row({ guess, currentGuess, handleSlotClick, className, checkGuess, feedback }) {
+export default function Row({ guess, currentGuess, handleSlotClick, className, checkGuess, feedback, showPicker, handlePickerClick }) {
     
     let feedbackArray = [...Array(4)]
     if (feedback) {
@@ -35,6 +36,7 @@ export default function Row({ guess, currentGuess, handleSlotClick, className, c
             </div>
 
             <button onClick={checkGuess}><i class='bx bx-check'></i></button>
+            {showPicker && <ColorPicker handlePickerClick={handlePickerClick}/>}
         </div>
     )
 }
