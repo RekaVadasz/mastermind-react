@@ -15,7 +15,19 @@
   text-align: center;
 }
 
+* body .mobile-menu i {
+  font-size: 30px;
+}
+
 * body header {
+  width: 100vw;
+  max-width: 1300px;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,10 +36,47 @@
           justify-content: space-between;
   font-size: 20px;
   font-weight: 500;
-  padding: 14px 10px;
-  margin-bottom: 8px;
   color: #333;
-  background-color: #bbbbbb;
+}
+
+* body header .header-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+* body header .header-buttons i {
+  margin-right: 5px;
+  font-size: 30px;
+  cursor: pointer;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+* body header .header-buttons i:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+* body header .header-buttons button {
+  padding: 2px 5px;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: #ffebcd;
+  cursor: pointer;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+* body header .header-buttons button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
 }
 
 * body header .solution {
@@ -40,17 +89,30 @@
   background-color: #888;
 }
 
-* body header button {
-  padding: 2px 5px;
-  border: 2px solid #666;
-  border-radius: 5px;
-  cursor: pointer;
+@media screen and (max-height: 850px) {
+  * body header {
+    display: none;
+  }
 }
 
-* body section .grid {
+* body main {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #ffebcd;
+}
+
+* body main .grid {
   max-width: 380px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 28px;
   background-color: #9C7160;
   border-radius: 18px;
   margin: 0 auto;
@@ -58,7 +120,7 @@
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-* body section .grid .row {
+* body main .grid .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -71,11 +133,11 @@
   position: relative;
 }
 
-* body section .grid .row:nth-child(10) div {
+* body main .grid .row:nth-child(10) div {
   border: none;
 }
 
-* body section .grid .row .slots {
+* body main .grid .row .slots {
   padding: 10px 0px;
   border-bottom: 5px solid #89594B;
   display: -webkit-box;
@@ -83,7 +145,7 @@
   display: flex;
 }
 
-* body section .grid .row .slots div {
+* body main .grid .row .slots div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -96,14 +158,14 @@
   /* background: radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.123), rgba(0, 0, 0, 0.123)); */
 }
 
-* body section .grid .row .slots div:hover {
+* body main .grid .row .slots div:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   -webkit-transition: ease 0.5s;
   transition: ease 0.5s;
 }
 
-* body section .grid .row .evaluation {
+* body main .grid .row .evaluation {
   width: 50px;
   padding: 13px 0;
   border-bottom: 5px solid #89594B;
@@ -120,7 +182,7 @@
       flex-wrap: wrap;
 }
 
-* body section .grid .row .evaluation div {
+* body main .grid .row .evaluation div {
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -129,15 +191,15 @@
   background: radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.123), rgba(0, 0, 0, 0.123));
 }
 
-* body section .grid .row .evaluation .correct {
+* body main .grid .row .evaluation .correct {
   background-color: #262626;
 }
 
-* body section .grid .row .evaluation .included {
+* body main .grid .row .evaluation .included {
   background-color: #EFEFEF;
 }
 
-* body section .grid .row button {
+* body main .grid .row button {
   width: 20px;
   height: 20px;
   padding-top: 1px;
@@ -153,19 +215,19 @@
   transition: ease 0.5s;
 }
 
-* body section .grid .row button:hover {
+* body main .grid .row button:hover {
   -webkit-transform: scale(1.4);
           transform: scale(1.4);
   -webkit-transition: ease 0.5s;
   transition: ease 0.5s;
 }
 
-* body section .grid .row button i {
+* body main .grid .row button i {
   font-size: 12px;
   color: #EFEFEF;
 }
 
-* body section .grid .row .picker {
+* body main .grid .row .picker {
   width: 200px;
   border-radius: 8px;
   padding: 6px 0;
@@ -188,7 +250,7 @@
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-* body section .grid .row .picker div {
+* body main .grid .row .picker div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -200,23 +262,23 @@
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
 
-* body section .grid .row .picker div:hover {
+* body main .grid .row .picker div:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   -webkit-transition: ease 0.5s;
   transition: ease 0.5s;
 }
 
-* body section .grid .inactive .slots > div, * body section .grid .inactive button {
+* body main .grid .inactive .slots > div, * body main .grid .inactive button {
   cursor: not-allowed;
 }
 
-* body section .grid .inactive .slots > div:hover, * body section .grid .inactive button:hover {
+* body main .grid .inactive .slots > div:hover, * body main .grid .inactive button:hover {
   -webkit-transform: none;
           transform: none;
 }
 
-* body section .modal {
+* body main .modal {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -234,7 +296,7 @@
   background: rgba(255, 255, 255, 0.7);
 }
 
-* body section .modal .modal-inner {
+* body main .modal .modal-inner {
   width: 400px;
   max-width: 80vw;
   padding: 40px;
@@ -245,11 +307,11 @@
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-* body section .modal .modal-inner h2 {
+* body main .modal .modal-inner h2 {
   font-size: 20px;
 }
 
-* body section .modal .modal-inner .solution-slots {
+* body main .modal .modal-inner .solution-slots {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -259,7 +321,7 @@
   margin-bottom: 10px;
 }
 
-* body section .modal .modal-inner .solution-slots div {
+* body main .modal .modal-inner .solution-slots div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -267,7 +329,7 @@
   background: radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.123), rgba(0, 0, 0, 0.123));
 }
 
-* body section .modal .modal-inner button {
+* body main .modal .modal-inner button {
   padding: 2px 5px;
   border: 2px solid #666;
   border-radius: 5px;

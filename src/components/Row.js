@@ -35,7 +35,7 @@ export default function Row({ guess, currentGuess, handleSlotClick, className, c
                 })}
             </div>
 
-            <button onClick={checkGuess}><i class='bx bx-check'></i></button>
+            <button onClick={checkGuess}><i className='bx bx-check'></i></button>
             {showPicker && <ColorPicker handlePickerClick={handlePickerClick}/>}
         </div>
     )

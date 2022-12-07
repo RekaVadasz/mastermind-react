@@ -6,6 +6,7 @@ import Board from "./components/Board";
 function App() {
 
     const [solution, setSolution] = useState(null);
+    console.log(solution)
 
     useEffect(() => {
         let randomSolution = [];
@@ -20,15 +21,22 @@ function App() {
         <>
             <header>
                 <div>Mastermind</div>
-                <div className='solution'> 
+                {/* {solution && <div className='solution'> 
                     solution: 
                         {solution.map((color, i) => (
                             <div key={i}>{color.id}</div>
                         ))}
+                </div>} */}
+                <div className='header-buttons'>
+                    <i className='bx bx-info-circle'></i>
+                    <button onClick={() => {window.location.reload(false)}}>New Game</button>
                 </div>
-                <button onClick={() => {window.location.reload(false)}}>New Game</button>
             </header>
             {solution && <Board solution={solution}/>}
+            <div className='mobile-menu'>
+                <i className='bx bx-info-circle'></i>
+                <i class='bx bx-revision'></i>
+            </div>
         </>
     );
 }

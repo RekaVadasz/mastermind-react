@@ -11,16 +11,59 @@
         margin: 0;
         font-family: 'Poppins', sans-serif;
         text-align: center;
+
+        .mobile-menu {
+
+            i {
+                font-size: 30px;
+            }
+        }
         
         header {
+            width: 100vw;
+            max-width: 1300px;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             justify-content: space-between;
             font-size: 20px;
             font-weight: 500;
-            padding: 14px 10px;
-            margin-bottom: 8px;
             color: #333;
-            background-color: rgb(187, 187, 187);
+
+            .header-buttons {
+                display: flex;
+
+                i {
+                    margin-right: 5px;
+                    font-size: 30px;
+                    cursor: pointer;
+                    transition: ease 0.5s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        transition: ease 0.5s;
+                    }
+                }
+                
+                button {
+                    padding: 2px 5px;
+                    color: #333;
+                    border: 2px solid #333;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    background-color: #ffebcd;
+                    cursor: pointer;
+                    transition: ease 0.5s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        transition: ease 0.5s;
+                    }
+                }
+            }
 
             .solution {
                 display: flex;
@@ -28,20 +71,24 @@
                 background-color: #888;
             }
 
-            button {
-                padding: 2px 5px;
-                border: 2px solid #666;
-                border-radius: 5px;
-                cursor: pointer;
+            @media screen and (max-height: 850px){
+                display: none;
+                
             }
+
         }
 
-        section {
+        main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffebcd;
 
             .grid {
                 max-width: 380px;
-                padding-top: 20px;
-                padding-bottom: 20px;
+                padding: 20px 28px;
                 background-color: #9C7160;
                 border-radius: 18px;
                 margin: 0 auto;
