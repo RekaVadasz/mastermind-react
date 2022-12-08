@@ -3,6 +3,7 @@ import Grid from './Grid';
 import Modal from './Modal';
 
 import useMastermind from '../hooks/useMastermind';
+import Alert from './Alert';
 
 export default function Board({ solution }) {
 
@@ -10,25 +11,26 @@ export default function Board({ solution }) {
 
     // - - - - STATES - - - - 
 
-    const [showPicker, setShowPicker] = useState(false)
-    const [showModal, setShowModal] = useState(false);
+    const [showPicker, setShowPicker] = useState(false); //show ColorPicker component
+    const [showModal, setShowModal] = useState(false); // show Modal in case of winning/losing the game
+    const [showAlert, setShowAlert] = useState(false); // show Alert for filling in all the slots
     
-    const [turn, setTurn] = useState(0); //max 10
-    const [currentSlot, setCurrentSlot] = useState(null); //the slot where the user chooses a color
-    const [currentGuess, setCurrentGuess] = useState([...Array(4)]); //empty array of 4 elements
-    const [guesses, setGuesses] = useState([...Array(10)]) // each guess is an array of colors
-    const [feedbacks, setFeedbacks] = useState([...Array(10)])
-    const [isCorrect, setIsCorrect] = useState(false) //if true: finish game, win
+    const [turn, setTurn] = useState(0); //max 10 turns in the game
+    const [currentSlot, setCurrentSlot] = useState(null); //the slot for which the color is chosen (0/1/2/3)
+    const [currentGuess, setCurrentGuess] = useState([...Array(4)]); //array of 4 colors
+    const [guesses, setGuesses] = useState([...Array(10)]) // all past guesses, each guess is an array of colors
+    const [feedbacks, setFeedbacks] = useState([...Array(10)]) //all past feedbacks on guesses
+    const [isCorrect, setIsCorrect] = useState(false) //if true: finish game, user wins
 
     // - - - LOGIC - - - - 
 
-    //choose slot to insert a color from picker (show picker)
+    // show ColorPicker and choose slot to insert a color into
     const handleSlotClick = (e) => {
         setShowPicker(true);
         setCurrentSlot(parseInt(e.target.getAttribute('index'), 10)); 
     }
 
-    // handle user color input, save color into current guess at right position
+    // handle user color input from ColorPicker, save color into currentGuess at right position
     const handlePickerClick = (e) => {
         setShowPicker(false);
         const nextGuess = currentGuess.map((guess, i) => {
@@ -41,11 +43,13 @@ export default function Board({ solution }) {
         setCurrentGuess(nextGuess);
     }
     
-    // if check button clicked, check inputs against solution
+    // if 'check' button clicked, check inputs against solution
     const checkGuess = () => {
-        //check if all slots are filled with color
+
+        //check if all slots are filled with color, if not, alert user
         if (currentGuess.includes(undefined)) {
-            console.log("please fill in all slots with color")
+            setShowAlert(true);
+            setTimeout(() => {setShowAlert(false)}, 2000)
             return
         }
 
@@ -57,7 +61,13 @@ export default function Board({ solution }) {
             return
         }
         
-        //otherwise evaluate guess, save it and track turn
+        // check is this was the last turn, if so, user looses the game
+        if (turn === 9 ) { 
+            setShowModal(true)
+            return
+        };
+
+        // evaluate guess and save it into feedback history
         const newFeedback = getFeedback(currentGuess, solution);
         setFeedbacks((prevFeedbacks) => {
             let newFeedbacks = [...prevFeedbacks];
@@ -65,22 +75,20 @@ export default function Board({ solution }) {
             return newFeedbacks
         }) 
 
-        if (turn === 9 ) {
-            setShowModal(true)
-            return
-        };
-
-        setGuesses((prevGuesses) => {
+        //save guees in guesses history
+        setGuesses((prevGuesses) => { 
             let newGuesses = [...prevGuesses];
             newGuesses[turn] = currentGuess;
             return newGuesses
         });
 
-        setTurn((prevTurn) => {
+        // track turn
+        setTurn((prevTurn) => { 
             return prevTurn + 1
         });
 
-        setCurrentGuess([...Array(4)]);
+        // empty currentGuess
+        setCurrentGuess([...Array(4)]); 
     }
 
     return (
@@ -96,6 +104,7 @@ export default function Board({ solution }) {
                 handlePickerClick={handlePickerClick}
             />
             {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution}/>}
+            {showAlert && <Alert />}
         </div>
     )
 }

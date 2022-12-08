@@ -13,7 +13,7 @@ export default function Modal({ isCorrect, turn, solution }) {
 
                 {!isCorrect && (
                     <>
-                    <h2>You did not manage to brake the code :( </h2>
+                    <h2>You did not manage to break the code :( </h2>
                     <p>The solution was:</p>
                     </>
                 )}

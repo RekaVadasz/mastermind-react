@@ -6,9 +6,10 @@ export default function Grid({ currentGuess, guesses, turn, handleSlotClick, che
         <div className='grid'>
             {guesses.map((guess, i) => {
                 
+                // past rows with colors already filled in 
                 if (i < turn) {
-                    return (
-                        <Row 
+                    return (  
+                        <Row
                             key={i} 
                             guess={guess} 
                             feedback={feedbacks[i]} 
@@ -17,7 +18,8 @@ export default function Grid({ currentGuess, guesses, turn, handleSlotClick, che
                     )
                 }
                 
-                if (i === turn) {
+                // current row, has to be filled with colors
+                if (i === turn) { 
                     return (
                         <Row 
                             key= {i} 
@@ -26,11 +28,11 @@ export default function Grid({ currentGuess, guesses, turn, handleSlotClick, che
                             checkGuess={checkGuess}
                             showPicker={showPicker}
                             handlePickerClick={handlePickerClick}
-
                         />
                     )
                 }
 
+                // future rows, yet inactive
                 return <Row key={i} guess={guess} className='inactive'/>
             })}
         </div>

@@ -4,6 +4,7 @@ import Slots from './Slots';
 
 export default function Row({ guess, currentGuess, handleSlotClick, className, checkGuess, feedback, showPicker, handlePickerClick }) {
     
+    //create empty array and if feedback available, fill it up with the evalution then sort elements alphabetically
     let feedbackArray = [...Array(4)]
     if (feedback) {
         feedbackArray = feedback.map((element) => (element.isCorrect)).sort()
@@ -29,7 +30,6 @@ export default function Row({ guess, currentGuess, handleSlotClick, className, c
                     }
 
                     return (<div key={i}></div>)
-                    
                 })}
             </div>
 
