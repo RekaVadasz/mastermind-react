@@ -1,10 +1,10 @@
 const useMastermind = () => {
 
     /**
-     * Check if current each color of the guess of the user equals with ones in the solution
+     * Check if each color of the current guess of the user equals with ones in the solution
      * @param {Array} currentGuess The ids of 4 colors chosen by user
      * @param {Array} solution The ids and hex codes of 4 colors of the solution
-     * @return {Array} guessWithFeedback Each color of the guess with an evaluation: 'correct'/'included'/'not correct'
+     * @return {Array} Each color of the guess with an evaluation: 'correct'/'included'/'not correct'
     */ 
     const getFeedback = (currentGuess, solution) => {
 
